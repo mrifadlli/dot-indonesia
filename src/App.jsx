@@ -38,7 +38,7 @@ const App = () => {
   };
 
   const handleLogin = (email, password, setLoginStatus, navigate) => {
-    if (email === "admin" && password === "admin") {
+    if (email === "admin@gmail.com" && password === "admin") {
       setLoginStatus("Success")
       navigate('/home')
       setIsAuthenticated(true)
