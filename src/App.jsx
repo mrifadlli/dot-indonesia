@@ -14,9 +14,9 @@ import Footer from "./components/Footer";
 
 // Pages
 import Home from "./pages/Home"
-import ByName from "./Pages/SearchByName";
+import ByName from "./pages/SearchByName"
 import ByIngredients from "./Pages/SearchByIngredients";
-import ByCategories from "./Pages/SearchByCategories";
+import ByCategories from "./pages/SearchByCategories"
 import Detail from "./Pages/Detail";
 import MealsIngredients from "./Pages/MealsIngredients";
 import Login from "./pages/Login";
