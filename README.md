@@ -1,8 +1,26 @@
-# React + Vite
+# Selamat Datang di Mealshunter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Instalasi
 
-Currently, two official plugins are available:
+### 1. run command "npm install"
+### 2. tambahkan file .env di root direktori berisikan : 
+- VITE_API_BASE_URL='https://www.themealdb.com/api/json/v1/1/'
+### 3. run command "npm run dev", untuk menjalankan aplikasi
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Login 
+
+### 1. Gunakan email dan password sebagai berikut : 
+
+- Email : admin@gmail.com
+- Password : admin
+
+<hr>
+
+# Explore web
+
+Pada sidebar terdapat navigasi untuk mencari menu makanan, begitu juga pada bagian content ada link (explore) mengarahkan sesuai tag
+
+ada 3 page utama : 
+-   search by name
+-   search by ingredients
+-   search by category
