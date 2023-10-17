@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 
 // Componnents
-import Sidebar from "./Components/Sidebar";
+import Sidebar from "./components/Sidebar"
 import Footer from "./components/Footer";
 
 // Pages
