@@ -13,7 +13,7 @@ import Sidebar from "./components/Sidebar"
 import Footer from "./components/Footer";
 
 // Pages
-import Home from "./Pages/Home";
+import Home from "./pages/Home"
 import ByName from "./Pages/SearchByName";
 import ByIngredients from "./Pages/SearchByIngredients";
 import ByCategories from "./Pages/SearchByCategories";
