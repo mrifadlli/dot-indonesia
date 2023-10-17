@@ -11,8 +11,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import axiosClients from "../axiosClients";
 
 // Components
-import Meals from "../Components/Meals";
-import Pagination from "../Components/Pagination";
+import Meals from "../components/Meals";
+import Pagination from "../components/Pagination";
 
 // eslint-disable-next-line react/prop-types
 const ByName = ({ handleSidebar, sidebar }) => {

@@ -5,8 +5,8 @@ import React, { useEffect, useState } from "react";
 import { FaBarsProgress } from "react-icons/fa6";
 
 // Component
-import Ingredients from "../Components/Ingredients";
-import Pagination from "../Components/Pagination";
+import Ingredients from "../components/Ingredients";
+import Pagination from "../components/Pagination";
 
 // AxiosClient
 import axiosClients from "../axiosClients";

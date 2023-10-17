@@ -7,8 +7,8 @@ import { FaBarsProgress } from "react-icons/fa6";
 import { BiLeftArrowAlt } from "react-icons/bi";
 
 // Components
-import Meals from "../Components/Meals";
-import Pagination from "../Components/Pagination";
+import Meals from "../components/Meals";
+import Pagination from "../components/Pagination";
 
 // axiosClientd
 import axiosClients from "../axiosClients";

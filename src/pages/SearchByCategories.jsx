@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 
 // Components
-import Meals from "../Components/Meals";
-import Pagination from "../Components/Pagination";
+import Meals from "../components/Meals";
+import Pagination from "../components/Pagination";
 
 // Icon
 import { FaBarsProgress } from "react-icons/fa6";

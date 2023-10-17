@@ -6,7 +6,7 @@ import React, { useEffect } from "react";
 import { FaBarsProgress } from "react-icons/fa6";
 
 // Components
-import HoverImage from "../Components/HoverImage";
+import HoverImage from "../components/HoverImage";
 
 // Assets
 import hero1 from "../assets/hero1.jpg";
