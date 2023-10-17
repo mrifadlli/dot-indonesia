@@ -25,13 +25,28 @@ import Login from "./pages/Login";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+import { useNavigate } from "react-router-dom";
+
 const App = () => {
+  // Auth
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   // Sidebar
   const [sidebar, setSidebar] = useState(false);
   // Handle Sidebar
   const handleSidebar = () => {
     setSidebar(!sidebar);
   };
+
+  const handleLogin = (email, password, setLoginStatus, navigate) => {
+    if (email === "admin" && password === "admin") {
+      setLoginStatus("Success")
+      navigate('/home')
+      setIsAuthenticated(true)
+    }else {
+      setIsAuthenticated(false)
+      setLoginStatus("Failed")
+    }
+  }
 
   useEffect(() => {
     AOS.init();
@@ -40,43 +55,46 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-      <Route path="/" element={<Login />} />
-      <Route element={<Root sidebar={sidebar} setSidebar={setSidebar} />}>
-      <Route
-        path="/home"
-        element={<Home handleSidebar={handleSidebar} sidebar={sidebar} />}
-      />
-      <Route
-        path="/by-name/:name?"
-        index={true}
-        element={<ByName handleSidebar={handleSidebar} sidebar={sidebar} />}
-      />
-      <Route
-        path="/by-ingredients"
-        element={
-          <ByIngredients handleSidebar={handleSidebar} sidebar={sidebar} />
-        }
-      />
-      <Route
-        path="/ingredient/:ingredient?"
-        element={
-          <MealsIngredients
-            handleSidebar={handleSidebar}
-            sidebar={sidebar}
+        <Route path="/" element={<Login handleLogin={handleLogin} />} />
+
+        <Route element={<PrivateRoute isAuthenticated={isAuthenticated} >
+          <Root sidebar={sidebar} setSidebar={setSidebar} />
+        </PrivateRoute>}>
+          <Route
+            path="/home"
+            element={<Home handleSidebar={handleSidebar} sidebar={sidebar} />}
           />
-        }
-      />
-      <Route
-        path="/by-categories/:category?"
-        element={
-          <ByCategories handleSidebar={handleSidebar} sidebar={sidebar} />
-        }
-      />
-      <Route
-        path="/detail/:id"
-        element={<Detail handleSidebar={handleSidebar} sidebar={sidebar} />}
-      />
-    </Route>
+          <Route
+            path="/by-name/:name?"
+            index={true}
+            element={<ByName handleSidebar={handleSidebar} sidebar={sidebar} />}
+          />
+          <Route
+            path="/by-ingredients"
+            element={
+              <ByIngredients handleSidebar={handleSidebar} sidebar={sidebar} />
+            }
+          />
+          <Route
+            path="/ingredient/:ingredient?"
+            element={
+              <MealsIngredients
+                handleSidebar={handleSidebar}
+                sidebar={sidebar}
+              />
+            }
+          />
+          <Route
+            path="/by-categories/:category?"
+            element={
+              <ByCategories handleSidebar={handleSidebar} sidebar={sidebar} />
+            }
+          />
+          <Route
+            path="/detail/:id"
+            element={<Detail handleSidebar={handleSidebar} sidebar={sidebar} />}
+          />
+        </Route>
       </>
     )
   );
@@ -87,6 +105,24 @@ const App = () => {
     </>
   );
 };
+
+
+// eslint-disable-next-line react/prop-types
+const PrivateRoute = ({ children, isAuthenticated }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/home");
+    } else {
+      navigate('/')
+    }
+  }, [isAuthenticated, navigate]);
+
+  // Render the children only if authenticated
+  return isAuthenticated ? children : null;
+};
+
 
 // eslint-disable-next-line react/prop-types
 const Root = ({ sidebar, setSidebar }) => {

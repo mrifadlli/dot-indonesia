@@ -59,10 +59,10 @@ const Sidebar = ({ sidebar, setSidebar }) => {
         <img src={me} alt="" className="w-16 h-16 rounded-full" />
         <div className="flex flex-col">
           <span className="text-base font-normal flex items-center gap-x-1.5">
-            Muhamad Anrico
+            User329432480
             <MdVerified className="cursor-pointer text-blue-500" size={17} />
           </span>
-          <span className="text-sm font-thin">Developer</span>
+          <span className="text-sm font-thin">Admin</span>
         </div>
       </div>
       <div className="divide-y divide-gray-700">
