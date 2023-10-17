@@ -17,8 +17,8 @@ import Home from "./pages/Home"
 import ByName from "./pages/ByName"
 import ByIngredients from "./pages/ByIngredients"
 import ByCategories from "./pages/SearchByCategories"
-import Detail from "./Pages/Detail";
-import MealsIngredients from "./Pages/MealsIngredients";
+import Detail from "./pages/Detail";
+import MealsIngredients from "./pages/MealsIngredients";
 import Login from "./pages/Login";
 
 // Aos
