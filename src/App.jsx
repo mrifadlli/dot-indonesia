@@ -1,35 +1,110 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// eslint-disable-next-line no-unused-vars
+import React, { useEffect, useState } from "react";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+// Componnents
+import Sidebar from "./Components/Sidebar";
+import Footer from "./components/Footer";
+
+// Pages
+import Home from "./Pages/Home";
+import ByName from "./Pages/SearchByName";
+import ByIngredients from "./Pages/SearchByIngredients";
+import ByCategories from "./Pages/SearchByCategories";
+import Detail from "./Pages/Detail";
+import MealsIngredients from "./Pages/MealsIngredients";
+import Login from "./pages/Login";
+
+// Aos
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+const App = () => {
+  // Sidebar
+  const [sidebar, setSidebar] = useState(false);
+  // Handle Sidebar
+  const handleSidebar = () => {
+    setSidebar(!sidebar);
+  };
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+      <Route path="/" element={<Login />} />
+      <Route element={<Root sidebar={sidebar} setSidebar={setSidebar} />}>
+      <Route
+        path="/home"
+        element={<Home handleSidebar={handleSidebar} sidebar={sidebar} />}
+      />
+      <Route
+        path="/by-name/:name?"
+        index={true}
+        element={<ByName handleSidebar={handleSidebar} sidebar={sidebar} />}
+      />
+      <Route
+        path="/by-ingredients"
+        element={
+          <ByIngredients handleSidebar={handleSidebar} sidebar={sidebar} />
+        }
+      />
+      <Route
+        path="/ingredient/:ingredient?"
+        element={
+          <MealsIngredients
+            handleSidebar={handleSidebar}
+            sidebar={sidebar}
+          />
+        }
+      />
+      <Route
+        path="/by-categories/:category?"
+        element={
+          <ByCategories handleSidebar={handleSidebar} sidebar={sidebar} />
+        }
+      />
+      <Route
+        path="/detail/:id"
+        element={<Detail handleSidebar={handleSidebar} sidebar={sidebar} />}
+      />
+    </Route>
+      </>
+    )
+  );
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <RouterProvider router={router} />
     </>
-  )
-}
+  );
+};
 
-export default App
+// eslint-disable-next-line react/prop-types
+const Root = ({ sidebar, setSidebar }) => {
+  return (
+    <>
+      <div className="flex">
+        <Sidebar sidebar={sidebar} setSidebar={setSidebar} />
+        <div
+          className={`flex-grow relative w-full h-full z-0 overflow-hidden ${
+            sidebar ? "h-screen md:h-full" : "h-full"
+          }`}
+        >
+          <Outlet />
+          <Footer />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default App;
