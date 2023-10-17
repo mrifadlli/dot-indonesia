@@ -9,17 +9,17 @@ import {
 } from "react-router-dom";
 
 // Componnents
-import Sidebar from "./components/Sidebar"
-import Footer from "./components/Footer";
+import Sidebar from "./Components/Sidebar"
+import Footer from "./Components/Footer";
 
 // Pages
-import Home from "./pages/Home"
-import ByName from "./pages/ByName"
-import ByIngredients from "./pages/ByIngredients"
-import ByCategories from "./pages/SearchByCategories"
-import Detail from "./pages/Detail";
-import MealsIngredients from "./pages/MealsIngredients";
-import Login from "./pages/Login";
+import Home from "./Pages/Home"
+import ByName from "./Pages/ByName"
+import ByIngredients from "./Pages/ByIngredients"
+import ByCategories from "./Pages/SearchByCategories"
+import Detail from "./Pages/Detail";
+import MealsIngredients from "./Pages/MealsIngredients";
+import Login from "./Pages/Login";
 
 // Aos
 import AOS from "aos";
