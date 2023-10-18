@@ -15,7 +15,7 @@ const Login = ({handleLogin}) => {
   return (
     <div className="">
       <div className="bg-image bg-cover bg-center h-screen flex justify-center xl:justify-end items-center w-full m-0">
-        <div className="bg-white/70 rounded-xl w-96 h-fit xl:mr-36">
+        <div className="bg-white/70 rounded-xl w-96 h-fit xl:mr-36 mx-7">
           <h2 className="font-semibold text-2xl text-center py-5">
             Welcome Back
           </h2>

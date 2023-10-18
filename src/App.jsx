@@ -117,7 +117,7 @@ const PrivateRoute = ({ children, isAuthenticated }) => {
     } else {
       navigate('/')
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated]);
 
   // Render the children only if authenticated
   return isAuthenticated ? children : null;
